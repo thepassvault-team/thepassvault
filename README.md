@@ -7,3 +7,4 @@ ThePassVault is a password management software created by 4 students. We impleme
 - NodeJS
 - React
 - MySQL
+- GitHub
