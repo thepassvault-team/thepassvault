@@ -4,7 +4,7 @@ ThePassVault is a password management software created by 4 students. We impleme
 
 <h2>Technologies Used </h2>
 
-<h3> How will branching work </h3>
+
 
 - NodeJS
 - React
