@@ -2,5 +2,17 @@
   "name": "server",
   "version": "1.0.0",
   "main": "index.js",
-  "license": "MIT"
+  "license": "MIT",
+
+  "script": 
+  {
+    "start": "nodemon index.js"
+  },
+  
+  "dependencies": {
+    "cores": "^0.8.5",
+    "express": "^4.18.2",
+    "mysql": "^2.18.1",
+    "nodemon": "^2.0.21"
+  }
 }
