@@ -1,15 +1,13 @@
 const express = require('express')
+require('dotenv').config()
 const pm = express()
-const mysql_db = require('mysql')
+const mysql = require('mysql')
 
-const connect_db = mysql.createConnection(
-    {
-        host: us-east.connect.psdb.cloud,
-        database: thepassvault,
-        user: t6xdrood6l4wk5648qza,
-        password: df,
-    }
-);
+const connection = mysql.createConnection(process.env.THEPASSVAULTDB)
+console.log('Connected to PlanetScale!')
+
+connection.end()
+
 
 pm.get('/', (request, response) =>
 {
