@@ -1,20 +1,50 @@
-const express = require('express')
-require('dotenv').config()
-const pm = express()
-const mysql = require('mysql')
+const express = require('express') 
+const app = express()
+const mysql2 = require('mysql2')
+const cors = require('cors')
+const PORT = 3001
 
-const connection = mysql.createConnection(process.env.THEPASSVAULTDB)
-console.log('Connected to PlanetScale!')
+const { encrypt, decrypt} = require("./Encryption")
 
-connection.end()
+app.use(cors())
+app.use(express.json())
 
-
-pm.get('/', (request, response) =>
-{
-    response.send
+const db = mysql2.createConnection({
+    user: 'root',
+    host: 'localhost',
+    password: 'Veersaibzz77z!',
+    database: 'passvault'
 });
 
-pm.listen(3001, () =>
-{
-    console.log("SERVER IS UP....")
+app.post('/addpassword', (req,res) => {
+    const {platform_name, url, username, user_password, iv} = req.body;
+    const hashedPassword = encrypt(user_password);
+    
+
+    db.query("INSERT INTO passwords (platform_name, url, username, user_password, iv) VALUES (?, ?, ?, ?, ?)", [platform_name, url, username, hashedPassword.user_password, hashedPassword.iv], (err, result) => {
+        if (err) {
+            console.log(err)
+        } else {
+            res.send("Success");
+        }
+    })
+})
+
+app.get("/showpasswords", (req, res) => {
+    db.query("SELECT * FROM passwords;", (err, result) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.send(result);
+      }
+    });
+  });
+
+app.post("/decryptpassword", (req, res) => {
+    res.send(decrypt(req.body));
+  });
+
+
+app.listen(PORT, () => {
+    console.log('Server is running')
 });
