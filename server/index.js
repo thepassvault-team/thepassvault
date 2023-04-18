@@ -3,18 +3,19 @@ const app = express()
 const mysql2 = require('mysql2')
 const cors = require('cors')
 const PORT = 3001
+require('dotenv').config()
 
 const { encrypt, decrypt} = require("./Encryption")
 
 app.use(cors())
 app.use(express.json())
 
-const db = mysql2.createConnection({
-    user: 'root',
-    host: 'localhost',
-    password: 'Veersaibzz77z!',
-    database: 'passvault'
-});
+const connection = mysql.createConnection(process.env.DATABASE_URL)
+
+console.log('Connected to PlanetScale!')
+
+connection.end()
+
 
 app.post('/addpassword', (req,res) => {
     const {platform_name, url, username, user_password, iv} = req.body;
