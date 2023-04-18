@@ -3,9 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
-  "scripts": {
-    "start": "nodemon index.js"
-  },
+
   "dependencies": {
     "@planetscale/database": "^1.7.0",
     "cors": "^2.8.5",
