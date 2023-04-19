@@ -5,5 +5,10 @@ module.exports = {
     plugins: [
         new NodePolyfillPlugin(),
         new Dotenv()
-    ]
+    ],
+    resolve: {
+        fallback: {
+            net: false
+        }
+    }
 }
