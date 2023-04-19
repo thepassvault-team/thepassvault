@@ -50,6 +50,7 @@
     ]
   },
   "browser": {
-    "crypto": false
+    "crypto": false,
+    "tsl": false
   }
 }
