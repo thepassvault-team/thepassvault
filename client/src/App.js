@@ -11,18 +11,18 @@ function App() {
   const [passwordList, setPasswordList] = useState([]);
 
   useEffect(() => {
-    Axios.get("http://localhost:3001/showpasswords").then((response) => {
+    Axios.get("http://thepassvault.com:3001/showpasswords").then((response) => {
       setPasswordList(response.data);
     });
   }, []);
 
   const addPassword = () => {
-    Axios.post('http://localhost:3001/addpassword', {platform_name: platform_name, url: url, username: username, user_password: user_password});
+    Axios.post('http://thepassvault.com:3001/addpassword', {platform_name: platform_name, url: url, username: username, user_password: user_password});
   };
 
 
   const decryptPassword = (encryption) => {
-    Axios.post("http://localhost:3001/decryptpassword", {
+    Axios.post("http://thepassvault.com:3001/decryptpassword", {
       user_password: encryption.user_password,
       iv: encryption.iv,
     }).then((response) => {
