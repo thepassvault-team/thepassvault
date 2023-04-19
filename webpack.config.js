@@ -8,7 +8,8 @@ module.exports = {
     ],
     resolve: {
         fallback: {
-            net: false
+            net: false,
+            tls: false
         }
     }
 }
