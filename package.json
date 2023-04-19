@@ -13,7 +13,7 @@
     "sql": "^0.78.0"
   },
   "scripts": {
-    "client": "cd client && yarn install && yarn start --prefix client",
+    "client": "cd client && yarn install && yarn build --prefix client",
     "server": "node server/index.js",
     "start": "concurrently \"yarn run server\" \"yarn run client\""
   }
