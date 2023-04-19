@@ -26,7 +26,7 @@ reportWebVitals();
 app.use(cors())
 app.use(express.json())
 
-const connection = mysql.createConnection(process.env.DATABASE_URL)
+const connection = mysql.createConnection(process.env.REACT_APP_DATABASE_URL)
 
 console.log('Connected to DB!')
 
