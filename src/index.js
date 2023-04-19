@@ -7,7 +7,7 @@ const app = express()
 const mysql = require('mysql2')
 const cors = require('cors')
 const PORT = 3001
-//require('dotenv').config()
+require('dotenv').config()
 
 const { encrypt, decrypt} = require("./Encryption")
 
@@ -26,7 +26,7 @@ reportWebVitals();
 app.use(cors())
 app.use(express.json())
 
-const connection = mysql.createConnection(process.env.REACT_APP_DATABASE_URL)
+const connection = mysql.createConnection(process.env.DATABASE_URL)
 
 console.log('Connected to DB!')
 
