@@ -1,8 +1,9 @@
 const NodePolyfillPlugin = require("node-polyfill-webpack-plugin")
-
+const Dotenv = require('dotenv-webpack');
 module.exports = {
     // Other rules...
     plugins: [
-        new NodePolyfillPlugin()
+        new NodePolyfillPlugin(),
+        new Dotenv()
     ]
 }

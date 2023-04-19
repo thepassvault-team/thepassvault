@@ -7,7 +7,7 @@ const app = express()
 const mysql = require('mysql2')
 const cors = require('cors')
 const PORT = 3001
-require('dotenv').config()
+require('dotenv-webpack').config()
 
 const { encrypt, decrypt} = require("./Encryption")
 
